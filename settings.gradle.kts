@@ -13,4 +13,9 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "PinApp"
-include ':app'
+include(
+        ":app",
+        ":core-android-base",
+        ":core-base",
+        ":core-design",
+)
