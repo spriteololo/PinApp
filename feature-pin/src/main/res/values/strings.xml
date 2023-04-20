@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pin_name_empty">Pin name is empty, please type something</string>
+</resources>

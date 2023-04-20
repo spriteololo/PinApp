@@ -1,5 +1,6 @@
 package com.test.feature_pin.presentation.mapper
 
+import com.test.core_pin.domain.model.Pin
 import com.test.feature_pin.presentation.model.PinItem
 import javax.inject.Inject
 

@@ -18,5 +18,6 @@ include(
         ":core-android-base",
         ":core-base",
         ":core-design",
+        ":core-pin",
         ":feature-pin",
 )

@@ -26,6 +26,7 @@ internal class PinListAdapter(
     override fun onBindViewHolder(holder: PinItemViewHolder, position: Int) {
         val item = itemList[position]
         holder.run {
+            rootView.setOnClickListener { clickListener.onItemClicked(item) }
             tvPinName.text = item.pinName
             tvPinCode.text = item.pinCode.toString()
         }
@@ -52,7 +53,7 @@ internal class PinListAdapter(
 
     override fun getItemCount(): Int = itemList.size
 
-    inner class PinItemViewHolder(rootView: View) : RecyclerView.ViewHolder(rootView) {
+    inner class PinItemViewHolder(val rootView: View) : RecyclerView.ViewHolder(rootView) {
 
         val tvPinName: TextView = rootView.findViewById(R.id.tv_pin_name)
         val tvPinCode: TextView = rootView.findViewById(R.id.tv_pin_code)

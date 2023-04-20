@@ -23,12 +23,14 @@ class AndroidX internal constructor() {
     private val constrainedLayoutVersion = "2.1.3"
     private val fragmentVersion = "1.4.1"
     private val viewBindingVersion = "7.1.2"
+    private val securityCryptoVersion = "1.1.0-alpha06" //Needed to fix bug with listener when key removed
 
     val appCompat = "androidx.appcompat:appcompat:$appCompatVersion"
     val constraintLayout = "androidx.constraintlayout:constraintlayout:$constrainedLayoutVersion"
     val core = "androidx.core:core-ktx:$coreVersion"
     val fragment = "androidx.fragment:fragment-ktx:$fragmentVersion"
     val viewBinding = "androidx.databinding:viewbinding:$viewBindingVersion"
+    val securityCrypto = "androidx.security:security-crypto:$securityCryptoVersion"
 }
 
 val androidX = AndroidX()
@@ -96,7 +98,12 @@ val reactiveX = ReactiveX()
 
 
 class Other internal constructor() {
+    val moxyVersion = "2.2.2"
 
+    val moxy = "com.github.moxy-community:moxy:$moxyVersion"
+    val moxyAndroidX = "com.github.moxy-community:moxy-androidx:$moxyVersion"
+    val moxyKtx = "com.github.moxy-community:moxy-ktx:$moxyVersion"
+    val moxyCompiler = "com.github.moxy-community:moxy-compiler:$moxyVersion"
 }
 
 val other = Other()

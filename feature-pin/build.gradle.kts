@@ -28,13 +28,19 @@ dependencies {
     implementation(project(":core-android-base"))
     implementation(project(":core-base"))
     implementation(project(":core-design"))
+    implementation(project(":core-pin"))
 
     implementation(androidX.core)
     implementation(androidX.appCompat)
     implementation(androidX.fragment)
     implementation(google.dagger)
     implementation(google.material)
+    implementation(other.moxy)
+    implementation(other.moxyAndroidX)
+    implementation(other.moxyKtx)
     implementation(kotlinx.serializationJson)
+    implementation(reactiveX.rxJava)
 
+    kapt(other.moxyCompiler)
     kapt(google.daggerCompile)
 }

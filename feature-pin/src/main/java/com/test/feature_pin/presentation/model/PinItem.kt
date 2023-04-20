@@ -5,7 +5,7 @@ import androidx.annotation.Keep
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-internal data class PinItem(
+data class PinItem(
     val pinName: String,
     val pinCode: Int,
 ): Parcelable {

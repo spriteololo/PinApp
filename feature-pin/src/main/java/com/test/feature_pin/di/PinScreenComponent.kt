@@ -2,6 +2,10 @@ package com.test.feature_pin.di
 
 import androidx.fragment.app.Fragment
 import com.test.core_base.di.module.DispatcherProviderBindingModule
+import com.test.core_pin.di.PinApi
+import com.test.core_pin.domain.usecase.DeletePinUseCase
+import com.test.core_pin.domain.usecase.ObservePinListUseCase
+import com.test.core_pin.domain.usecase.SavePinUseCase
 import com.test.feature_pin.di.module.PinScreenModule
 import com.test.feature_pin.ui.PinListFragment
 import dagger.Component
@@ -32,13 +36,25 @@ internal interface PinScreenComponent {
         }
 
         private fun dependencies(fragment: Fragment): PinScreenDependenciesComponent {
-            fragment.requireActivity().application
+            val application = fragment.requireActivity().application
 
             return DaggerPinScreenDependenciesComponent.builder()
+                .pinApi(PinApi.get(application))
                 .build()
         }
     }
 }
 
-@Component
-internal interface PinScreenDependenciesComponent : PinDependencies
+@Component(
+    dependencies = [
+        PinApi::class
+    ]
+)
+internal interface PinScreenDependenciesComponent : PinDependencies {
+
+    fun observePinListUseCase(): ObservePinListUseCase
+
+    fun savePinUseCase(): SavePinUseCase
+
+    fun deletePinUseCase(): DeletePinUseCase
+}
