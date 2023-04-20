@@ -26,9 +26,9 @@ internal class PinListAdapter(
     override fun onBindViewHolder(holder: PinItemViewHolder, position: Int) {
         val item = itemList[position]
         holder.run {
-            rootView.setOnClickListener { clickListener.onItemClicked(item) }
+            btnDelete.setOnClickListener { clickListener.onItemClicked(item) }
             tvPinName.text = item.pinName
-            tvPinCode.text = item.pinCode.toString()
+            tvPinCode.text = item.pinCode
         }
     }
 
@@ -41,11 +41,8 @@ internal class PinListAdapter(
             super.onBindViewHolder(holder, position, payloads)
         } else {
             with(payloads.component1() as Bundle) {
-                getString(PinItem.PIN_NAME, null)?.let { pinName ->
-                    holder.tvPinName.text = pinName
-                }
-                getInt(PinItem.PIN_CODE, -1).takeIf { it != -1 }.let { pinCode ->
-                    holder.tvPinCode.text = pinCode.toString()
+                getString(PinItem.PIN_CODE, null)?.let { pinCode ->
+                    holder.tvPinCode.text = pinCode
                 }
             }
         }
@@ -53,8 +50,9 @@ internal class PinListAdapter(
 
     override fun getItemCount(): Int = itemList.size
 
-    inner class PinItemViewHolder(val rootView: View) : RecyclerView.ViewHolder(rootView) {
+    inner class PinItemViewHolder(rootView: View) : RecyclerView.ViewHolder(rootView) {
 
+        val btnDelete: View = rootView.findViewById(R.id.btn_delete)
         val tvPinName: TextView = rootView.findViewById(R.id.tv_pin_name)
         val tvPinCode: TextView = rootView.findViewById(R.id.tv_pin_code)
     }
@@ -63,7 +61,7 @@ internal class PinListAdapter(
         BaseDiffUtil<PinItem>(oldList, newList) {
 
         override fun areItemsTheSame(oldItem: PinItem, newItem: PinItem): Boolean {
-            return oldItem == newItem
+            return oldItem.pinName == newItem.pinName
         }
 
         override fun areContentsTheSame(oldItem: PinItem, newItem: PinItem): Boolean {
@@ -75,11 +73,8 @@ internal class PinListAdapter(
             newItem: PinItem,
             bundle: Bundle,
         ) {
-            if (oldItem.pinName != newItem.pinName) {
-                bundle.putString(PinItem.PIN_NAME, newItem.pinName)
-            }
             if (oldItem.pinCode != newItem.pinCode) {
-                bundle.putInt(PinItem.PIN_CODE, newItem.pinCode)
+                bundle.putString(PinItem.PIN_CODE, newItem.pinCode)
             }
         }
     }

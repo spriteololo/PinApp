@@ -44,7 +44,8 @@ internal class PinListFragment : MvpAppCompatFragment(R.layout.fragment_pin_list
             if (pinName.isBlank()) {
                 Toast.makeText(requireContext(), R.string.pin_name_empty, Toast.LENGTH_SHORT).show()
             } else {
-                presenter.generatePin(pinName)
+                binding.etPinName.text.clear()
+                presenter.generateAndSavePin(pinName)
             }
         }
 
@@ -59,6 +60,22 @@ internal class PinListFragment : MvpAppCompatFragment(R.layout.fragment_pin_list
 
     override fun updatePinList(list: List<PinItem>) {
         mainAdapter.submitList(list)
+    }
+
+    override fun itemExists(pinName: String) {
+        Toast.makeText(
+            requireContext(),
+            getString(R.string.item_exists_already, pinName),
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    override fun showError() {
+        Toast.makeText(
+            requireContext(),
+            R.string.general_error,
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     override fun onItemClicked(item: PinItem) {
