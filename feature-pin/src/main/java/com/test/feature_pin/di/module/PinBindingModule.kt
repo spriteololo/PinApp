@@ -1,7 +1,7 @@
 package com.test.feature_pin.di.module
 
-import com.test.feature_pin.domain.usecase.GenerateNewPinUseCase
-import com.test.feature_pin.domain.usecase.GenerateNewPinUseCaseImpl
+import com.test.feature_pin.domain.usecase.GenerateAndSaveNewPinUseCase
+import com.test.feature_pin.domain.usecase.GenerateAndSaveNewPinUseCaseImpl
 import dagger.Binds
 import dagger.Module
 
@@ -9,5 +9,5 @@ import dagger.Module
 internal interface PinBindingModule {
 
     @Binds
-    fun bindGenerateNewPinUseCase(impl: GenerateNewPinUseCaseImpl): GenerateNewPinUseCase
+    fun bindGenerateNewPinUseCase(impl: GenerateAndSaveNewPinUseCaseImpl): GenerateAndSaveNewPinUseCase
 }

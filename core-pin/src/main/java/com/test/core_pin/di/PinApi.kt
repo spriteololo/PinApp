@@ -2,6 +2,7 @@ package com.test.core_pin.di
 
 import android.content.Context
 import com.test.core_pin.domain.usecase.DeletePinUseCase
+import com.test.core_pin.domain.usecase.GetPinUseCase
 import com.test.core_pin.domain.usecase.ObservePinListUseCase
 import com.test.core_pin.domain.usecase.SavePinUseCase
 
@@ -12,6 +13,8 @@ interface PinApi {
     fun savePinUseCase(): SavePinUseCase
 
     fun deletePinUseCase(): DeletePinUseCase
+
+    fun getPinUseCase(): GetPinUseCase
 
     companion object {
 

@@ -23,5 +23,4 @@ internal class PinToCachedPinModelMapper @Inject constructor() {
             second = code,
         )
     }
-
 }

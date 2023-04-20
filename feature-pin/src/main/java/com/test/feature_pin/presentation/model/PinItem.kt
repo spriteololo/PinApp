@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class PinItem(
     val pinName: String,
-    val pinCode: Int,
+    val pinCode: String,
 ): Parcelable {
 
     @Keep

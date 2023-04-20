@@ -7,6 +7,7 @@ import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import com.test.core_pin.data.model.CachedPinModel
 import io.reactivex.rxjava3.core.Completable
+import io.reactivex.rxjava3.core.Maybe
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 
@@ -27,8 +28,8 @@ internal class PinManager @Inject constructor(context: Context) {
     fun observePinList(): Observable<List<CachedPinModel>> =
         Observable.create { emitter ->
             fun SharedPreferences.getAllData(): List<CachedPinModel> {
-                return all.filter { (_, value) -> value is Int }
-                    .map { (key, value) -> key to value as Int }
+                return all.filter { (_, value) -> value is String && value.toIntOrNull() != null }
+                    .map { (key, value) -> key to value as String }
             }
 
             listener = SharedPreferences.OnSharedPreferenceChangeListener { _, _ ->
@@ -47,7 +48,7 @@ internal class PinManager @Inject constructor(context: Context) {
     fun savePin(cachedPinModel: CachedPinModel): Completable =
         Completable.fromAction {
             sharedPreferences.edit(true) {
-                putInt(cachedPinModel.first, cachedPinModel.second)
+                putString(cachedPinModel.first, cachedPinModel.second)
             }
         }
 
@@ -63,6 +64,13 @@ internal class PinManager @Inject constructor(context: Context) {
             sharedPreferences.edit(true) {
                 clear()
             }
+        }
+
+    fun getPin(name: String): Maybe<CachedPinModel> =
+        Maybe.fromCallable {
+            sharedPreferences.getString(name, null)?.let { currentCode ->
+                name to currentCode
+            } ?: return@fromCallable null
         }
 
     companion object {

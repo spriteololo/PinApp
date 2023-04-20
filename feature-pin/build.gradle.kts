@@ -29,6 +29,7 @@ dependencies {
     implementation(project(":core-base"))
     implementation(project(":core-design"))
     implementation(project(":core-pin"))
+    implementation(project(":core-pin-generator"))
 
     implementation(androidX.core)
     implementation(androidX.appCompat)

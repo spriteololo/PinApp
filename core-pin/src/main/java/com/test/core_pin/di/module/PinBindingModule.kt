@@ -22,4 +22,7 @@ internal interface PinBindingModule {
 
     @Binds
     fun bindDeletePinUseCase(impl: DeletePinUseCaseImpl): DeletePinUseCase
+
+    @Binds
+    fun bindGetPinUseCase(impl: GetPinUseCaseImpl): GetPinUseCase
 }

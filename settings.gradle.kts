@@ -19,5 +19,6 @@ include(
         ":core-base",
         ":core-design",
         ":core-pin",
+        ":core-pin-generator",
         ":feature-pin",
 )
