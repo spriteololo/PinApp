@@ -55,6 +55,8 @@ dependencies {
     implementation(project(":core-base"))
     implementation(project(":core-design"))
 
+    implementation(project(":feature-pin"))
+
     implementation(androidX.appCompat)
     implementation(androidX.core)
     implementation(androidX.constraintLayout)

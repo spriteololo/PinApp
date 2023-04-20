@@ -27,5 +27,9 @@ internal class MainActivity : AppCompatActivity(), RootNavigatorProvider {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_main)
+
+        if (savedInstanceState == null) {
+            rootNavigator.openPinList()
+        }
     }
 }

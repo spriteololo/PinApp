@@ -1,6 +1,8 @@
 package com.test.pinapp.di
 
 import com.test.core_base.common.RootNavigator
+import com.test.feature_pin.di.PinFeatureApi
+import com.test.feature_pin.navigator.PinListStarter
 import com.test.pinapp.PinApplication
 import com.test.pinapp.di.module.MainActivityBindingModule
 import com.test.pinapp.ui.MainActivity
@@ -39,6 +41,7 @@ internal interface MainActivityComponent {
 
             return DaggerActivityScreenComponentDependencies.builder()
                 .appComponent(application.appComponent)
+                .pinFeatureApi(PinFeatureApi.get())
                 .build()
         }
     }
@@ -47,9 +50,12 @@ internal interface MainActivityComponent {
 @Component(
     dependencies = [
         AppComponent::class,
+        PinFeatureApi::class
     ]
 )
 internal interface ActivityScreenComponentDependencies {
 
     fun applicationScope(): CompositeDisposable
+
+    fun pinListStarter(): PinListStarter
 }

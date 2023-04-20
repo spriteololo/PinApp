@@ -2,6 +2,8 @@ package com.test.core_base.common
 
 interface RootNavigator {
 
+    fun openPinList()
+
     fun showDialog(
         tag: String,
         title: String,
