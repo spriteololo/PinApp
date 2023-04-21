@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pin_name_empty">Pin name is empty, please type something</string>
+    <string name="item_exists_already">Item with name \"%s\" already exists</string>
+    <string name="general_error">Something went wrong:(</string>
+    <string name="delete_pin">Delete pin</string>
+    <string name="enter_pin_name">Enter pin name</string>
+    <string name="btn_generate">Generate</string>
+</resources>
