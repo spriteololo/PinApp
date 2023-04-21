@@ -2,12 +2,4 @@
 <resources>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
-
-    <string name="dialog_discard_title">Are you sure you want to discard?</string>
-    <string name="discard_btn">Discard</string>
-    <string name="cancel_btn">Cancel</string>
-    <string name="remove_btn">Remove</string>
-    <string name="btn_retry">Retry</string>
-    <string name="btn_back">Back</string>
-    <string name="btn_cancel">Cancel</string>
 </resources>

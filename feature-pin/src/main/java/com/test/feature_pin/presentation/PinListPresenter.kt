@@ -30,7 +30,7 @@ internal class PinListPresenter @Inject constructor(
         super.attachView(view)
         disposable += observePinListUseCase.pinList()
             .map { list ->
-                list.sortedBy(Pin::name)
+                list.sortedWith(compareBy { pin -> pin.name.lowercase() })
                     .map(mapper::mapFrom)
             }
             .observeOn(dispatcherProvider.main)

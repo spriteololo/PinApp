@@ -5,8 +5,7 @@
     android:id="@+id/btn_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_vertical"
-    android:paddingHorizontal="@dimen/item_inner_spacing">
+    android:gravity="center_vertical">
 
     <TextView
         android:id="@+id/tv_pin_name"

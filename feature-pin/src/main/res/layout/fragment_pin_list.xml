@@ -27,13 +27,14 @@
             android:id="@+id/et_pin_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:hint="@string/enter_pin_name"/>
 
         <Button
             android:id="@+id/btn_generate_pin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="generate" />
+            android:text="@string/btn_generate" />
 
     </LinearLayout>
 
