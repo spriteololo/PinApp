@@ -2,7 +2,6 @@ package com.test.feature_pin.presentation
 
 import com.test.core_base.streams.DispatcherProvider
 import com.test.core_base.streams.rx.plusAssign
-import com.test.core_pin.domain.model.Pin
 import com.test.core_pin.domain.usecase.DeletePinUseCase
 import com.test.core_pin.domain.usecase.GetPinUseCase
 import com.test.core_pin.domain.usecase.ObservePinListUseCase

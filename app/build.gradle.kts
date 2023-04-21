@@ -14,8 +14,6 @@ android {
         versionCode = appConfig.versionCode
         versionName = appConfig.versionName
         compileSdk = appConfig.compileSdk
-
-//        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -25,7 +23,6 @@ android {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-//            signingConfig = signingConfigs.getByName("release")
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
     }

@@ -1,7 +1,6 @@
 package com.test.core_pin.domain.usecase
 
 import com.test.core_pin.domain.PinRepository
-import com.test.core_pin.domain.model.Pin
 import io.reactivex.rxjava3.core.Completable
 import javax.inject.Inject
 

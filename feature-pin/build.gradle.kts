@@ -39,7 +39,6 @@ dependencies {
     implementation(other.moxy)
     implementation(other.moxyAndroidX)
     implementation(other.moxyKtx)
-    implementation(kotlinx.serializationJson)
     implementation(reactiveX.rxJava)
 
     kapt(other.moxyCompiler)

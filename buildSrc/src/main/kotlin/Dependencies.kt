@@ -73,18 +73,6 @@ class Test internal constructor() {
 
 val test = Test()
 
-
-class Kotlinx internal constructor() {
-
-    private val serializationJsonVersion = "1.3.2"
-
-    val serializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationJsonVersion"
-    val serializationProperties = "org.jetbrains.kotlinx:kotlinx-serialization-properties:$serializationJsonVersion"
-}
-
-val kotlinx = Kotlinx()
-
-
 class ReactiveX internal constructor() {
 
     private val rxJavaVersion = "3.1.6"
@@ -98,7 +86,7 @@ val reactiveX = ReactiveX()
 
 
 class Other internal constructor() {
-    val moxyVersion = "2.2.2"
+    private val moxyVersion = "2.2.2"
 
     val moxy = "com.github.moxy-community:moxy:$moxyVersion"
     val moxyAndroidX = "com.github.moxy-community:moxy-androidx:$moxyVersion"

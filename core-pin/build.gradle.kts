@@ -23,7 +23,6 @@ dependencies {
     implementation(androidX.core)
     implementation(androidX.securityCrypto)
     implementation(reactiveX.rxJava)
-//    implementation(reactiveX.rxAndroid)
 
     kapt(google.daggerCompile)
 }

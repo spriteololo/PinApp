@@ -29,6 +29,4 @@ dependencies {
     implementation(androidX.fragment)
     implementation(androidX.viewBinding)
     implementation(google.material)
-    implementation(reactiveX.rxJava)
-    implementation(reactiveX.rxAndroid)
 }

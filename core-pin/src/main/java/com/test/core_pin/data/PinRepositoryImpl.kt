@@ -15,11 +15,10 @@ internal class PinRepositoryImpl @Inject constructor(
     private val pinManager: PinManager,
 ) : PinRepository {
 
-    override fun observePinList(): Observable<List<Pin>> {
-        return pinManager.observePinList()
+    override fun observePinList(): Observable<List<Pin>> =
+        pinManager.observePinList()
             .map { pins -> pins.map(mapper::mapFrom) }
             .subscribeOn(dispatcherProvider.io)
-    }
 
     override fun savePin(pin: Pin): Completable =
         pinManager.savePin(mapper.mapTo(pin))
