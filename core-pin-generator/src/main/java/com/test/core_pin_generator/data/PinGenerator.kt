@@ -6,14 +6,20 @@ import kotlin.random.Random
 
 internal class PinGeneratorImpl @Inject constructor() : PinGenerator {
 
-    override fun getNewPin(): String {
-        val pinArr = arrayOfNulls<Int>(NUMBER_OF_DIGITS)
-        for (i in 0 until NUMBER_OF_DIGITS) {
+    override fun getNewPin(numberOfDigits: Int, maxNumberOfOccasions: Int): String {
+        if (numberOfDigits < 0) {
+            throw IllegalArgumentException("NumberOfDigits must be non-negative value")
+        }
+        if ((NUMBER_RANGE_UNTIL - NUMBER_RANGE_FROM) * maxNumberOfOccasions < numberOfDigits) {
+            throw IllegalArgumentException("Couldn't generate pin with such parameters")
+        }
+        val pinArr = arrayOfNulls<Int>(numberOfDigits)
+        for (i in 0 until numberOfDigits) {
             var tempNum: Int
             do {
-                tempNum = Random.nextInt(0, 10)
-            } while (i >= MAX_NUMBER_OF_OCCASIONS &&
-                pinArr.count { it == tempNum } >= MAX_NUMBER_OF_OCCASIONS
+                tempNum = Random.nextInt(NUMBER_RANGE_FROM, NUMBER_RANGE_UNTIL)
+            } while (i >= maxNumberOfOccasions &&
+                pinArr.count { it == tempNum } >= maxNumberOfOccasions
             )
             pinArr[i] = tempNum
         }
@@ -21,7 +27,7 @@ internal class PinGeneratorImpl @Inject constructor() : PinGenerator {
     }
 
     companion object {
-        private const val NUMBER_OF_DIGITS = 6
-        private const val MAX_NUMBER_OF_OCCASIONS = 3
+        private const val NUMBER_RANGE_FROM = 0
+        private const val NUMBER_RANGE_UNTIL = 10
     }
 }
